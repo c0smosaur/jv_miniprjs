@@ -7,8 +7,6 @@ public class CustomerController {
     private List<Customer> customers;
     private MedicalRecordController recordController;
 
-    public CustomerController(){}
-
     public CustomerController(MedicalRecordController recordController){
         this.customers = new ArrayList<>();
         this.recordController = recordController;

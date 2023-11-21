@@ -33,7 +33,7 @@ public class ConsoleView {
     public MedicalRecord getMedicalRecordInfo(){
         System.out.println("Date visited");
         String date = scanner.nextLine();
-        System.out.println("Diasnosis");
+        System.out.println("Diagnosis");
         String content = scanner.nextLine();
 
         return new MedicalRecord(null,date,content);
@@ -44,7 +44,7 @@ public class ConsoleView {
         System.out.println("["+customer.getPetName()+"]'s patient records");
         for (MedicalRecord record:records){
             System.out.println("| date visited: "+record.getDate());
-            System.out.println("| disnosis: "+record.getContent());
+            System.out.println("| diagnosis: "+record.getContent());
             System.out.println("| owner's name: "+customer.getOwnerName());
             System.out.println("| pet's name: "+customer.getPetName());
             System.out.println("| address: "+customer.getAddress());

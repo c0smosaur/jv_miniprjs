@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class PetMain {
     public static void main(String[] args) {
         MedicalRecordController recordController = new MedicalRecordController();
-        CustomerController customerController = new CustomerController();
+        CustomerController customerController = new CustomerController(recordController);
         ConsoleView view = new ConsoleView();
 
         while (true){
