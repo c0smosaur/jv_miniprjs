@@ -15,7 +15,8 @@ public class PetMain {
             System.out.println("2. Save diagnosis");
             System.out.println("3. Access records");
             System.out.println("4. Delete records");
-            System.out.println("5. Exit");
+            System.out.println("5. Delete account");
+            System.out.println("6. Exit");
             System.out.println("---Choose a number---");
 
             Scanner scanner = new Scanner(System.in);
@@ -24,7 +25,6 @@ public class PetMain {
                 case 1:
                     Customer newCustomer = view.getCustomerInfo();
                     String phoneNumber = newCustomer.getPhoneNumber();
-                    System.out.println(newCustomer);
                     if (customerController.isRegistered(phoneNumber)){
                         view.printMessage("You're already registered.");
                         continue;
@@ -69,18 +69,33 @@ public class PetMain {
                     break;
 
                 case 5:
+                    phoneNumber = view.getPhoneNumber();
+                    if (customerController.isRegistered(phoneNumber)){
+                        view.printMessage("Delete account? (Y/N)");
+                        String ans = scanner.nextLine();
+                        if (ans.equals("Y")){
+                            customerController.removeCustomer(phoneNumber);
+                            view.printMessage("Account deleted");
+                            break;
+                        } else if (ans.equals("N")){
+                            break;
+                        } else {
+                            view.printMessage("Wrong input, account was not deleted. ");
+                            break;
+                        }
+
+                    } else {
+                        view.printMessage("Number not registered.");
+                        break;
+                    }
+
+                case 6:
                     System.out.println("Shutting off.");
                     return;
                 default:
                     System.out.println("Wrong input.");
                     break;
-
-
-
-
             }
-
-            scanner.nextLine();
         }
     }
 }
